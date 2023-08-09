@@ -4,9 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class WebAPIApplicationBootstrap {
-}
+class MyStoreWebApplication
 
 fun main(args: Array<String>) {
-    runApplication<WebAPIApplicationBootstrap>(*args)
+    runApplication<MyStoreWebApplication>(*args)
 }
