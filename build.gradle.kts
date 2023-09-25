@@ -13,6 +13,11 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
 }
 
+allOpen {
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.Embeddable")
+    annotation("jakarta.persistence.MappedSuperclass")
+}
 
 allprojects {
     group = "kr.my.store"
@@ -26,17 +31,21 @@ allprojects {
 subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "kotlin-spring")
+    apply(plugin = "kotlin-jpa")
     apply(plugin = "io.spring.dependency-management")
     apply(plugin = "kotlin-kapt")
 
     dependencies {
         testImplementation("org.springframework.boot:spring-boot-starter-test") {
             exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
-            exclude(group = "org.mockito")
+            exclude(module = "mockito-core")
         }
-        testImplementation("com.ninja-squad:springmockk:2.0.3")
+
+        testImplementation("io.mockk:mockk:1.13.2")
+        testImplementation("com.ninja-squad:springmockk:4.0.2")
         testImplementation("io.kotest:kotest-runner-junit5:5.4.2")
         testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.2")
+        testImplementation("io.kotest", "kotest-framework-datatest", "5.2.3")
     }
 
     dependencyManagement {

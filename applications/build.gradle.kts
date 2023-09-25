@@ -1,6 +1,5 @@
 dependencies {
     implementation(project(":domain"))
-    implementation(project(":infrastructure"))
 
-    implementation("org.springframework.boot:spring-boot-start-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 }

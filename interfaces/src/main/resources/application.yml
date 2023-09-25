@@ -1,8 +1,0 @@
-server:
-  tomcat:
-    connection-timeout: 3000ms
-
-spring:
-  jpa:
-    open-in-view: false
-
